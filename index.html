@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ── SEO Primary ── -->
+<title>Protocolo Respirar Libre — ¿Cuánto Apoyo Respiratorio Necesita Su Cuerpo?</title>
+<meta name="description" content="Haga el quiz gratuito de 60 segundos y descubra su perfil respiratorio. Programa natural de 21 días con eucalipto, jengibre y miel — basado en un remedio ancestral de los Andes colombianos. Adaptado por el Dr. Camilo Restrepo, neumólogo.">
+<meta name="keywords" content="protocolo respirar libre, salud respiratoria, remedio natural pulmones, eucalipto jengibre miel, programa respiratorio 21 días, apoyo respiratorio natural, bienestar respiratorio latino">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Dr. Camilo Restrepo — Protocolo Respirar Libre">
+<link rel="canonical" href="https://fakepage-quiz.vercel.app/">
+
+<!-- ── Open Graph (Facebook / WhatsApp) ── -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fakepage-quiz.vercel.app/">
+<meta property="og:title" content="Descubra en 60 segundos cuánto apoyo respiratorio necesita su cuerpo">
+<meta property="og:description" content="Quiz gratuito de 7 preguntas → plan personalizado → programa natural de 21 días. Más de 7,400 personas en América Latina ya están notando la diferencia.">
+<meta property="og:locale" content="es_LA">
+<meta property="og:site_name" content="Protocolo Respirar Libre">
+
+<!-- ── Twitter Card ── -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Protocolo Respirar Libre — Quiz de Salud Respiratoria">
+<meta name="twitter:description" content="Descubra en 60 segundos el nivel de apoyo respiratorio que su cuerpo necesita. Programa natural de 21 días.">
+
+<!-- ── Favicon (emoji 🫁) ── -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫁</text></svg>">
+<link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🫁</text></svg>">
+
+<!-- ── Fonts ── -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+<style>
+:root {
+  --forest: #2E7D32;
+  --sage: #43A047;
+  --sage-hover: #2E7D32;
+  --leaf: #E8F5E9;
+  --leaf-border: #A5D6A7;
+  --amber: #E65100;
+  --amber-wash: #FFF3E0;
+  --danger: #E53935;
+  --paper: #FAFAFA;
+  --card: #FFFFFF;
+  --ink: #1A1A1A;
+  --ink-muted: #5C6B5C;
+  --rule: #E0E8E1;
+  --shadow-sm: 0 2px 12px rgba(0,0,0,.07);
+  --shadow-md: 0 4px 24px rgba(0,0,0,.10);
+  --shadow-green: 0 6px 24px rgba(67,160,71,.35);
+  --r-card: 14px;
+  --r-btn: 10px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#0D1A0E; --card:#152116; --ink:#E4EDE5;
+    --ink-muted:#8AAD8C; --rule:#253527; --leaf:#162819;
+    --leaf-border:#2E5230; --amber-wash:#241D10;
+    --shadow-sm:0 2px 12px rgba(0,0,0,.45);
+    --shadow-md:0 4px 24px rgba(0,0,0,.55);
+    --shadow-green:0 6px 24px rgba(67,160,71,.25);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0D1A0E; --card:#152116; --ink:#E4EDE5;
+  --ink-muted:#8AAD8C; --rule:#253527; --leaf:#162819;
+  --leaf-border:#2E5230; --amber-wash:#241D10;
+  --shadow-sm:0 2px 12px rgba(0,0,0,.45);
+  --shadow-md:0 4px 24px rgba(0,0,0,.55);
+  --shadow-green:0 6px 24px rgba(67,160,71,.25);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--paper);color:var(--ink);line-height:1.7;font-size:16px;-webkit-font-smoothing:antialiased}
+
+/* ── Screen system ── */
+.screen{display:none;opacity:0;transition:opacity .42s ease}
+.screen.visible{display:block}
+.screen.fade-in{opacity:1}
+
+/* ══════════════════════════════════════
+   SCREEN 1 — QUIZ
+══════════════════════════════════════ */
+.quiz-shell{min-height:100vh;display:flex;flex-direction:column;background:var(--paper)}
+
+.quiz-head{background:var(--card);border-bottom:1px solid var(--rule);padding:16px 20px 14px;position:sticky;top:0;z-index:50}
+.quiz-head-inner{max-width:640px;margin:0 auto}
+.quiz-logo{font-family:'Merriweather',Georgia,serif;font-size:13px;font-weight:700;color:var(--forest);letter-spacing:.06em;text-transform:uppercase;margin-bottom:12px;text-align:center}
+.quiz-logo em{font-style:normal;font-weight:400;color:var(--ink-muted)}
+.prog-track{background:var(--rule);border-radius:4px;height:6px;overflow:hidden}
+.prog-fill{height:100%;background:var(--sage);border-radius:4px;width:0%;transition:width .45s cubic-bezier(.4,0,.2,1)}
+.prog-label{font-size:11px;color:var(--ink-muted);text-align:right;margin-top:5px;font-variant-numeric:tabular-nums}
+
+.quiz-body{flex:1;display:flex;flex-direction:column;align-items:center;padding:32px 20px 56px;max-width:680px;margin:0 auto;width:100%}
+
+.quiz-intro{text-align:center;margin-bottom:28px}
+.quiz-intro h1{font-family:'Merriweather',Georgia,serif;font-size:clamp(19px,4.5vw,25px);font-weight:700;line-height:1.35;text-wrap:balance;margin-bottom:10px;color:var(--ink)}
+.quiz-intro p{font-size:14px;color:var(--ink-muted);max-width:480px;margin:0 auto;line-height:1.6}
+
+.q-card{background:var(--card);border-radius:var(--r-card);box-shadow:var(--shadow-md);padding:32px 28px;width:100%;max-width:560px;animation:qIn .3s ease}
+@keyframes qIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.q-eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--sage);margin-bottom:10px}
+.q-text{font-family:'Merriweather',Georgia,serif;font-size:clamp(17px,4vw,21px);font-weight:700;line-height:1.4;text-wrap:balance;margin-bottom:24px;color:var(--ink)}
+.a-list{display:flex;flex-direction:column;gap:11px}
+
+.a-btn{width:100%;min-height:56px;background:var(--card);border:2px solid var(--rule);border-radius:var(--r-btn);padding:13px 16px;text-align:left;font-family:'Inter',sans-serif;font-size:15px;font-weight:500;color:var(--ink);cursor:pointer;transition:border-color .18s,background .18s,box-shadow .18s,transform .15s;display:flex;align-items:center;gap:12px;line-height:1.4}
+.a-btn:hover{border-color:var(--sage);background:var(--leaf);box-shadow:var(--shadow-green);transform:translateY(-1px)}
+.a-btn:active{transform:translateY(0)}
+.a-btn.selected{border-color:var(--sage);background:var(--sage);color:#fff;box-shadow:var(--shadow-green)}
+.a-letter{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;min-width:28px;border-radius:50%;border:2px solid currentColor;font-size:12px;font-weight:700;opacity:.65;flex-shrink:0}
+.a-btn.selected .a-letter{border-color:rgba(255,255,255,.6);opacity:.9}
+
+/* ══════════════════════════════════════
+   SCREEN 2 — RESULTS
+══════════════════════════════════════ */
+.results-shell{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px;background:var(--paper)}
+
+/* Breathing loader */
+.loader-wrap{text-align:center;padding:40px 20px}
+.breath{position:relative;width:72px;height:72px;margin:0 auto 32px}
+.b-core{position:absolute;inset:0;border-radius:50%;background:var(--sage);animation:bCore 4s ease-in-out infinite}
+.b-ring1{position:absolute;inset:-14px;border-radius:50%;border:2px solid var(--sage);opacity:0;animation:bRing 4s ease-in-out infinite .4s}
+.b-ring2{position:absolute;inset:-28px;border-radius:50%;border:1.5px solid var(--sage);opacity:0;animation:bRing 4s ease-in-out infinite .8s}
+@keyframes bCore{0%,100%{transform:scale(.82);opacity:.8}50%{transform:scale(1);opacity:1}}
+@keyframes bRing{0%{transform:scale(.75);opacity:0}35%{opacity:.35}70%{opacity:.08}100%{transform:scale(1.45);opacity:0}}
+.loader-title{font-family:'Merriweather',Georgia,serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.loader-sub{font-size:14px;color:var(--ink-muted)}
+
+/* Result card */
+.result-card{background:var(--card);border-radius:var(--r-card);padding:36px 28px;box-shadow:var(--shadow-md);max-width:540px;width:100%;display:none}
+.result-card.show{display:block;animation:qIn .4s ease}
+.result-badge{display:inline-block;background:var(--amber);color:#fff;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:5px 13px;border-radius:20px;margin-bottom:20px}
+.result-hl{font-family:'Merriweather',Georgia,serif;font-size:clamp(19px,4.5vw,24px);font-weight:700;line-height:1.35;text-wrap:balance;margin-bottom:18px;color:var(--ink)}
+.result-p{font-size:15px;color:var(--ink-muted);margin-bottom:26px;line-height:1.75}
+.check-list{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:30px}
+.check-list li{display:flex;align-items:flex-start;gap:11px;font-size:15px;color:var(--ink);font-weight:500}
+.chk{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;min-width:22px;border-radius:50%;background:var(--sage);color:#fff;font-size:12px;margin-top:2px;font-weight:700}
+
+/* ══════════════════════════════════════
+   SHARED CTA BUTTON
+══════════════════════════════════════ */
+.cta-btn{display:block;width:100%;background:var(--sage);color:#fff;font-family:'Inter',sans-serif;font-size:18px;font-weight:700;border:none;border-radius:var(--r-btn);padding:18px 24px;cursor:pointer;text-align:center;text-decoration:none;transition:background .2s,transform .2s,box-shadow .2s;letter-spacing:.01em;box-shadow:var(--shadow-green)}
+.cta-btn:hover{background:var(--sage-hover);transform:translateY(-2px);box-shadow:0 10px 28px rgba(67,160,71,.45)}
+.cta-btn:active{transform:translateY(0)}
+.cta-btn.sm{font-size:16px;padding:15px 20px}
+
+/* ══════════════════════════════════════
+   SCREEN 3 — SALES PAGE
+══════════════════════════════════════ */
+.sticky-bar{position:sticky;top:0;z-index:100;background:var(--danger);color:#fff;text-align:center;padding:10px 16px;font-size:13px;font-weight:600;line-height:1.4}
+.sticky-bar strong{font-size:15px}
+
+.sp-inner{max-width:680px;margin:0 auto;padding:0 20px 80px}
+
+/* Headline block */
+.hl-block{text-align:center;padding:48px 0 36px}
+.pre-hl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--forest);margin-bottom:16px}
+.main-hl{font-family:'Merriweather',Georgia,serif;font-size:clamp(24px,5.5vw,36px);font-weight:900;line-height:1.22;text-wrap:balance;color:var(--ink);margin-bottom:16px}
+.sub-hl{font-size:17px;color:var(--ink-muted);line-height:1.65;max-width:580px;margin:0 auto}
+
+.sp-rule{border:none;border-top:1px solid var(--rule);margin:44px 0}
+
+/* Section eyebrow */
+.eyebrow{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--forest);margin-bottom:14px}
+
+/* Doctor letter */
+.doc-letter{background:var(--card);border-radius:var(--r-card);padding:36px 32px;box-shadow:var(--shadow-md);border-left:4px solid var(--sage)}
+.doc-letter p{font-size:16px;line-height:1.82;color:var(--ink);margin-bottom:18px}
+.doc-letter p:last-of-type{margin-bottom:0}
+.doc-sig{margin-top:26px;padding-top:22px;border-top:1px solid var(--rule);font-style:italic;color:var(--ink-muted);font-size:15px}
+.doc-sig strong{display:block;font-family:'Merriweather',Georgia,serif;font-style:normal;color:var(--ink);font-size:16px;margin-bottom:3px}
+
+/* Body sections */
+.body-s{margin-bottom:48px}
+.body-s h2{font-family:'Merriweather',Georgia,serif;font-size:clamp(21px,4.5vw,28px);font-weight:700;line-height:1.3;text-wrap:balance;margin-bottom:20px;color:var(--ink)}
+.body-s p{font-size:16px;line-height:1.82;color:var(--ink);margin-bottom:16px}
+.body-s p:last-child{margin-bottom:0}
+
+/* Quote list for problem section */
+.quote-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:18px 0}
+.quote-list li{display:flex;align-items:center;gap:12px;font-size:15px;color:var(--ink);padding:13px 16px;background:var(--card);border-radius:var(--r-btn);border-left:3px solid var(--rule);box-shadow:var(--shadow-sm);font-style:italic}
+.quote-list li::before{content:'"';font-family:'Merriweather',Georgia,serif;font-size:22px;color:var(--ink-muted);line-height:1;flex-shrink:0}
+
+/* Mechanism card */
+.mech-card{background:var(--card);border-radius:var(--r-card);padding:32px;box-shadow:var(--shadow-md)}
+.mech-title{font-family:'Merriweather',Georgia,serif;font-size:22px;font-weight:700;color:var(--forest);text-align:center;margin-bottom:6px}
+.mech-subtitle{font-size:13px;color:var(--ink-muted);text-align:center;margin-bottom:28px}
+.mech-steps{display:flex;flex-direction:column;gap:22px}
+.mech-step{display:flex;gap:16px;align-items:flex-start}
+.step-ico{font-size:26px;width:48px;height:48px;min-width:48px;display:flex;align-items:center;justify-content:center;background:var(--leaf);border-radius:12px}
+.step-body h4{font-weight:700;font-size:16px;color:var(--ink);margin-bottom:6px}
+.step-body p{font-size:14px;color:var(--ink-muted);line-height:1.68;margin:0}
+.mech-note{margin-top:24px;padding:15px 16px;background:var(--amber-wash);border-radius:var(--r-btn);border-left:3px solid var(--amber);font-size:14px;color:var(--ink);line-height:1.65}
+
+/* Testimonials */
+.testi-grid{display:flex;flex-direction:column;gap:18px}
+.testi-card{background:var(--card);border-radius:var(--r-card);padding:24px 24px 24px 26px;box-shadow:var(--shadow-md);border-left:4px solid var(--amber)}
+.stars{color:#F59E0B;font-size:15px;letter-spacing:2px;margin-bottom:12px}
+.testi-q{font-size:15px;line-height:1.78;color:var(--ink);font-style:italic;margin-bottom:15px}
+.testi-author{font-size:12px;font-weight:700;color:var(--ink-muted);text-transform:uppercase;letter-spacing:.06em}
+
+/* Inside list */
+.inside-list{list-style:none;display:flex;flex-direction:column;gap:11px}
+.inside-list li{display:flex;align-items:flex-start;gap:13px;font-size:15px;color:var(--ink);padding:15px 16px;background:var(--card);border-radius:var(--r-btn);box-shadow:var(--shadow-sm)}
+.inside-ico{font-size:20px;flex-shrink:0;width:32px;text-align:center;margin-top:1px}
+.bonus-tag{display:inline-block;background:var(--amber);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;padding:2px 7px;border-radius:4px;margin-left:6px;vertical-align:middle}
+
+/* Urgency block */
+.urgency-card{background:var(--card);border-radius:var(--r-card);padding:28px 24px;box-shadow:var(--shadow-md);text-align:center;border-top:4px solid var(--danger)}
+.urgency-card h3{font-family:'Merriweather',Georgia,serif;font-size:20px;font-weight:700;margin-bottom:16px;color:var(--ink)}
+.meter-track{background:var(--rule);border-radius:6px;height:14px;overflow:hidden;margin:14px 0}
+.meter-fill{height:100%;background:linear-gradient(90deg,var(--danger) 80%,#FF7043);border-radius:6px;width:98.47%}
+.spots-caption{font-size:14px;color:var(--ink-muted);margin-bottom:8px}
+.spots-count{font-size:36px;font-weight:700;color:var(--danger);font-variant-numeric:tabular-nums;line-height:1}
+.spots-label{font-size:14px;color:var(--ink-muted);margin-top:2px}
+
+/* Pricing block */
+.price-card{background:var(--card);border-radius:var(--r-card);padding:36px 28px;box-shadow:var(--shadow-md);text-align:center;border:2px solid var(--leaf-border)}
+.price-old{font-size:15px;color:var(--ink-muted);text-decoration:line-through;margin-bottom:2px}
+.price-mid{font-size:17px;color:var(--ink-muted);text-decoration:line-through;margin-bottom:8px}
+.price-tag{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--danger);margin-bottom:8px}
+.price-big{font-family:'Merriweather',Georgia,serif;font-size:68px;font-weight:900;color:var(--forest);line-height:1;margin-bottom:22px;font-variant-numeric:tabular-nums}
+.price-big sup{font-size:30px;vertical-align:super}
+.price-includes{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:26px;text-align:left}
+.price-includes li{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--ink)}
+.pi-chk{color:var(--sage);font-size:17px;flex-shrink:0}
+.pay-logos{display:flex;justify-content:center;align-items:center;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pay-logo{background:var(--paper);border:1px solid var(--rule);border-radius:5px;padding:4px 10px;font-size:11px;font-weight:700;color:var(--ink-muted);letter-spacing:.02em}
+
+/* Trust line */
+.trust-line{font-size:13px;color:var(--ink-muted);display:flex;align-items:center;justify-content:center;gap:6px;margin-top:12px;flex-wrap:wrap}
+
+/* Guarantee */
+.guarantee-card{background:var(--leaf);border-radius:var(--r-card);padding:32px 28px;text-align:center;border:1px solid var(--leaf-border)}
+.guarantee-ico{font-size:52px;margin-bottom:16px;line-height:1}
+.guarantee-card h3{font-family:'Merriweather',Georgia,serif;font-size:22px;font-weight:700;color:var(--forest);margin-bottom:16px}
+.guarantee-card p{font-size:16px;color:var(--ink);line-height:1.75}
+.guarantee-card .sub{font-size:14px;color:var(--ink-muted);margin-top:12px}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{background:var(--card);border-radius:var(--r-btn);box-shadow:var(--shadow-sm);overflow:hidden}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:17px 20px;cursor:pointer;font-weight:600;font-size:15px;color:var(--ink);gap:12px;user-select:none;line-height:1.4}
+.faq-q:hover{background:var(--leaf)}
+.faq-tog{flex-shrink:0;width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--sage);transition:transform .28s ease;line-height:1}
+.faq-item.open .faq-tog{transform:rotate(45deg)}
+.faq-ans{max-height:0;overflow:hidden;transition:max-height .38s ease}
+.faq-item.open .faq-ans{max-height:500px}
+.faq-ans-inner{padding:0 20px 20px;font-size:15px;color:var(--ink-muted);line-height:1.75}
+
+/* Closing */
+.closing-card{background:var(--card);border-radius:var(--r-card);padding:36px 32px;box-shadow:var(--shadow-md)}
+.closing-card p{font-size:16px;line-height:1.82;color:var(--ink);margin-bottom:18px}
+.closing-final{font-family:'Merriweather',Georgia,serif;font-size:20px;font-weight:700;color:var(--forest)}
+.closing-sig{margin-top:22px;padding-top:18px;border-top:1px solid var(--rule);font-style:italic;color:var(--ink-muted);font-size:15px}
+
+/* Spacing helpers */
+.gap-12{height:12px} .gap-20{height:20px} .gap-32{height:32px}
+
+/* Mobile */
+@media(max-width:480px){
+  .q-card,.doc-letter,.mech-card,.closing-card,.price-card{padding:24px 18px}
+  .price-big{font-size:54px}
+}
+@media(prefers-reduced-motion:reduce){
+  .screen,.a-btn,.cta-btn,.b-core,.b-ring1,.b-ring2,.q-card{transition:none;animation:none}
+}
+</style>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 1 — QUIZ
+════════════════════════════════════════════ -->
+<div class="screen visible fade-in" id="screen-quiz">
+  <div class="quiz-shell">
+    <header class="quiz-head">
+      <div class="quiz-head-inner">
+        <div class="quiz-logo">Protocolo <em>Respirar</em> Libre</div>
+        <div class="prog-track"><div class="prog-fill" id="prog-fill"></div></div>
+        <div class="prog-label" id="prog-label">Pregunta 1 de 7</div>
+      </div>
+    </header>
+    <main class="quiz-body">
+      <div class="quiz-intro">
+        <h1>Descubra en 60 segundos cuál es el nivel de apoyo respiratorio que su cuerpo necesita</h1>
+        <p>Responda 7 preguntas rápidas y recibirá un plan personalizado basado en su perfil respiratorio</p>
+      </div>
+      <div class="q-card" id="q-card">
+        <div class="q-eyebrow" id="q-eyebrow">Pregunta 1 de 7</div>
+        <div class="q-text" id="q-text"></div>
+        <div class="a-list" id="a-list"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 2 — RESULTS
+════════════════════════════════════════════ -->
+<div class="screen" id="screen-results">
+  <div class="results-shell">
+    <div class="loader-wrap" id="loader-wrap">
+      <div class="breath">
+        <div class="b-ring2"></div>
+        <div class="b-ring1"></div>
+        <div class="b-core"></div>
+      </div>
+      <div class="loader-title">Analizando su perfil respiratorio...</div>
+      <div class="loader-sub">Esto solo tomará un momento</div>
+    </div>
+    <div class="result-card" id="result-card">
+      <span class="result-badge">Su perfil: Necesidad de Apoyo Respiratorio Moderada-Alta</span>
+      <h2 class="result-hl">Sus respuestas indican que su sistema respiratorio se beneficiaría significativamente de un apoyo natural</h2>
+      <p class="result-p">Basándonos en sus respuestas, identificamos señales comunes en personas cuyo cuerpo está trabajando más de lo normal para mantener una respiración confortable. Esto no significa que algo esté "roto" — significa que su organismo está pidiendo un apoyo que los tratamientos convencionales muchas veces no ofrecen.</p>
+      <ul class="check-list">
+        <li><span class="chk">✓</span><span>Su cuerpo tiene capacidad natural de recuperar la comodidad respiratoria</span></li>
+        <li><span class="chk">✓</span><span>Un protocolo natural específico puede ayudar a acelerar ese proceso</span></li>
+        <li><span class="chk">✓</span><span>La mayoría de personas con este perfil nota mejoría en las primeras 2 a 3 semanas</span></li>
+      </ul>
+      <a class="cta-btn" href="https://pay.hotmart.com/Y107288459E?checkoutMode=10" target="_blank">Ver mi plan personalizado →</a>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     SCREEN 3 — SALES PAGE
+════════════════════════════════════════════ -->
+<div class="screen" id="screen-sales">
+
+  <div class="sticky-bar">⚠ Atención: Acceso limitado — Solo <strong>153</strong> lugares disponibles a este precio</div>
+
+  <div class="sp-inner">
+
+    <!-- Headline block -->
+    <div class="hl-block">
+      <div class="pre-hl">Protocolo Respirar Libre — Programa Natural de 21 Días</div>
+      <h1 class="main-hl">El Remedio Natural de los Mineros Andinos Que Ayuda a Recuperar la Comodidad Respiratoria — Preparado en Casa, en Menos de 5 Minutos</h1>
+      <p class="sub-hl">Más de 7,400 personas en América Latina ya están notando la diferencia. Sin inhaladores. Sin jarabes. Sin dejar de fumar.</p>
+    </div>
+
+    <a class="cta-btn" href="https://pay.hotmart.com/Y107288459E?checkoutMode=10" target="_blank">Quiero Acceder Ahora por $17 →</a>
+    <div class="gap-12"></div>
+    <div class="trust-line">🔒 Pago 100% seguro y encriptado &nbsp;·&nbsp; 🛡️ Garantía 30 días</div>
+
+    <hr class="sp-rule">
+
+    <!-- Doctor letter -->
+    <div class="body-s">
+      <div class="eyebrow">Carta del creador del programa</div>
+      <div class="doc-letter">
+        <p>Mi nombre es el Dr. Camilo Restrepo. Soy neumólogo con más de doce años de experiencia clínica en Medellín, Colombia. He atendido a miles de pacientes con problemas respiratorios: desde personas que llevan décadas dependiendo de inhaladores hasta adultos mayores que simplemente sienten que "ya no pueden respirar como antes".</p>
+        <p>Durante años apliqué los mismos protocolos que aprendí en la facultad de medicina. Los resultados eran aceptables. Mis pacientes se estabilizaban. Pero muy pocos reportaban una mejoría real en su comodidad respiratoria diaria. Algo en el modelo convencional dejaba un vacío que no sabía cómo llenar.</p>
+        <p>Todo cambió en 2018, cuando participé en un proyecto de salud comunitaria en una zona remota del departamento de Boyacá, en los Andes colombianos. La comunidad era pequeña: familias cuya historia estaba entrelazada durante generaciones con las minas de carbón de la región. Hombres y mujeres que habían pasado décadas inhalando polvo mineral. El tipo de exposición que, según los libros, debería haberse traducido en pulmones deteriorados a edades tempranas.</p>
+        <p>Pero lo que encontré me desconcertó.</p>
+        <p>Los trabajadores más mayores — hombres de 65, 70, incluso 75 años — respiraban con una soltura que muchos de mis pacientes de ciudad de 50 años no tenían. Subían pendientes empinadas sin jadear. Dormían sin despertarse tosiendo. Conversaban durante horas sin perder el hilo.</p>
+        <p>Les pregunté. Me miraron con la sonrisa de quien guarda un secreto tan obvio que le sorprende que alguien no lo conozca.</p>
+        <p>En la cocina de la señora Rosalba — quien había llevado el registro familiar de la receta durante cuarenta años — me mostraron la preparación. Eucalipto fresco de las laderas cercanas. Jengibre de raíz, cortado de una manera específica. Miel de abejas silvestres, sin pasteurizar. Pero lo crucial no era solo qué ingredientes usaban. Era el <em>cómo</em>: la temperatura exacta del agua, el orden en que se incorporaban los ingredientes, el tiempo de reposo, el momento del día en que se tomaba.</p>
+        <p>"Esto no es un té," me explicó la señora Rosalba con calma. "Es una preparación. Los que lo hacen al apuro no sienten nada."</p>
+        <p>Volví a Medellín con notas detalladas. Durante los siguientes dieciocho meses, comencé a recomendar este protocolo adaptado a pacientes con molestias respiratorias persistentes. No como reemplazo de su tratamiento médico, sino como apoyo natural complementario.</p>
+        <p>Lo que mis pacientes me reportaron en las semanas siguientes — la calidad del sueño, la sensación de mayor ligereza en el pecho, la reducción de la tos nocturna — me llevó a estructurar el Protocolo Respirar Libre para que cualquier persona en América Latina pudiera acceder a él desde su hogar, sin necesitar una consulta.</p>
+        <div class="doc-sig">
+          <strong>Dr. Camilo Restrepo</strong>
+          Neumólogo · Medellín, Colombia · 12 años de experiencia clínica
+        </div>
+      </div>
+    </div>
+
+    <hr class="sp-rule">
+
+    <!-- The Problem -->
+    <div class="body-s">
+      <h2>¿Por qué tantas personas con molestias respiratorias no notan una mejoría real con el tiempo?</h2>
+      <p>Si usted tiene molestias respiratorias — ya sea una tos que no termina de irse, la sensación de que su pecho siempre está un poco apretado, o ese cansancio extraño que aparece con actividades que antes no le costaban nada — probablemente ya escuchó las mismas recomendaciones varias veces:</p>
+      <ul class="quote-list">
+        <li>Use este inhalador cuando lo necesite.</li>
+        <li>Evite el humo y los ambientes contaminados.</li>
+        <li>Deje de fumar.</li>
+      </ul>
+      <p>Son recomendaciones razonables. Y sin embargo, muchas personas que las siguen al pie de la letra sienten que su comodidad respiratoria no mejora de manera significativa. No porque hayan hecho algo mal, sino porque esos consejos tratan el síntoma en el momento en que aparece — no el proceso que lo genera.</p>
+      <p>Las vías respiratorias acumulan irritantes con los años: partículas de polvo, contaminantes del aire urbano, residuos del tabaco, efectos del aire seco. Y necesitan un apoyo regular y consistente para mantenerse en buen funcionamiento. La mayoría de los tratamientos convencionales no están diseñados para ese apoyo continuo y cotidiano — están diseñados para la crisis aguda.</p>
+      <p>Lo que la mayoría de personas no sabe — y que la señora Rosalba y sus vecinos de los Andes colombianos sabían desde hace décadas — es que existe una forma sencilla, probada por generaciones, de apoyar exactamente ese proceso de recuperación natural. Y que se prepara en casa, en menos de cinco minutos, con ingredientes que cuestan menos de $8 al mes en cualquier mercado de América Latina.</p>
+    </div>
+
+    <hr class="sp-rule">
+
+    <!-- The Mechanism -->
+    <div class="body-s">
+      <div class="mech-card">
+        <div class="mech-title">La Preparación de los Tres Activos</div>
+        <div class="mech-subtitle">Por qué funciona — y por qué la mayoría lo hace mal</div>
+        <div class="mech-steps">
+          <div class="mech-step">
+            <div class="step-ico">🌿</div>
+            <div class="step-body">
+              <h4>1. Eucalipto — Apoyo directo a las vías respiratorias</h4>
+              <p>El eucalipto contiene compuestos naturales que muchas personas encuentran reconfortantes para la respiración. Cuando se prepara a la temperatura exacta que preserva sus propiedades activas — ni demasiado alta ni demasiado baja — ayuda a calmar la irritación del revestimiento de las vías aéreas y promueve una sensación de mayor apertura respiratoria. Prepararlo mal (con agua hirviendo, por ejemplo) destruye los compuestos que lo hacen efectivo.</p>
+            </div>
+          </div>
+          <div class="mech-step">
+            <div class="step-ico">🫚</div>
+            <div class="step-body">
+              <h4>2. Jengibre — Activación de la circulación respiratoria</h4>
+              <p>El jengibre tiene propiedades calóricas naturales bien documentadas. Cuando se incorpora en el segundo paso de la preparación — no en el primero, como muchos hacen por error — promueve la circulación saludable en el tracto respiratorio y apoya la función natural de las estructuras que ayudan a mantener las vías aéreas despejadas. El orden importa más de lo que parece.</p>
+            </div>
+          </div>
+          <div class="mech-step">
+            <div class="step-ico">🍯</div>
+            <div class="step-body">
+              <h4>3. Miel cruda — Calma y defensa natural</h4>
+              <p>La miel sin procesar recubre suavemente la garganta, contribuye a calmar la irritación y apoya las defensas naturales del organismo. Su efecto es especialmente notable durante las horas de descanso, cuando muchas personas experimentan mayor incomodidad respiratoria. La miel pasteurizada comercial no produce el mismo resultado — el protocolo explica exactamente cómo identificar y usar la miel correcta.</p>
+            </div>
+          </div>
+        </div>
+        <div class="mech-note"><strong>⚠ Lo que la mayoría hace mal:</strong> Tomar estos tres ingredientes por separado, o en cualquier orden, no produce el mismo efecto. Es la preparación específica — la temperatura, el orden exacto, los tiempos de reposo, y el momento del día — lo que hace que funcionen juntos. El Protocolo Respirar Libre enseña exactamente esto, paso a paso, en video.</div>
+      </div>
+    </div>
+
+    <hr class="sp-rule">
+
+    <!-- Testimonials -->
+    <div class="body-s">
+      <div class="eyebrow">Lo que dicen quienes ya lo probaron</div>
+      <h2>Más de 7,400 personas ya están notando la diferencia</h2>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-q">"Llevaba más de tres años despertándome a las dos o tres de la madrugada con tos seca. Mi esposo ya dormía en cuarto separado porque lo despertaba. Probé varios jarabes y hasta un inhalador que me dejó con la boca muy seca. Una amiga me habló del protocolo y lo intenté sin muchas expectativas. Al día 12, me di cuenta de que había dormido la noche completa por primera vez en años. No lo podía creer. Llevo ya dos meses y la diferencia en mi descanso nocturno es real y consistente. Es lo primero que funciona de verdad."</p>
+          <div class="testi-author">— María Fernanda R., 62 años · Bogotá, Colombia</div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-q">"Fumé durante veintidós años y lo dejé hace cuatro. Pensé que con el tiempo mis pulmones mejorarían solos, pero seguía sintiendo el pecho pesado, especialmente en las mañanas. Mi hijo me regaló el programa para mi cumpleaños — con cierta ironía, hay que reconocerlo. Lo empecé casi por compromiso. En la segunda semana noté algo difícil de describir: el pecho se sentía más liviano. Como si una presión que ya había normalizado comenzara a ceder. Ahora salgo a caminar a mi perro cada mañana. Algo que antes evitaba porque me quedaba sin aire a los cinco minutos."</p>
+          <div class="testi-author">— Jorge Alberto M., 58 años · Ex fumador · Guadalajara, México</div>
+        </div>
+        <div class="testi-card">
+          <div class="stars">★★★★★</div>
+          <p class="testi-q">"Fue mi hija quien compró el programa para mí. Yo soy muy desconfiada de estas cosas de internet, pero ella insistió. Tenía una tos crónica que me daba vergüenza en reuniones familiares y en la iglesia. Me contenía, pero igual salía. Seguí el protocolo durante las tres semanas completas tal como lo indica el doctor. Lo que más me sorprendió no fue solo la tos — que sí mejoró — sino que volví a salir con mis amigas sin preocuparme de tener que salir de la sala a toser. Mi hija dice que me ve 'más presente' en las reuniones. Para mí eso no tiene precio."</p>
+          <div class="testi-author">— Lucía V., 71 años · Lima, Perú</div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sp-rule">
+
+    <!-- What's inside -->
+    <div class="body-s">
+      <div class="eyebrow">Contenido del programa</div>
+      <h2>Todo lo que recibe al acceder hoy</h2>
+      <ul class="inside-list">
+        <li><span class="inside-ico">🎬</span><span><strong>Clases en video paso a paso</strong> — Diseñadas especialmente para adultos mayores. Sin tecnicismos, sin pasos confusos. El Dr. Restrepo lo guía en cada etapa como si estuviera en su propia cocina.</span></li>
+        <li><span class="inside-ico">📋</span><span><strong>La receta exacta de la preparación</strong> — Cantidades precisas, temperatura correcta del agua, tiempos de reposo y el método correcto de incorporación de cada ingrediente.</span></li>
+        <li><span class="inside-ico">📅</span><span><strong>El calendario completo de 21 días</strong> — Qué hacer cada día, cuándo tomar la preparación, y cómo ajustar cada fase del protocolo para potenciar los resultados.</span></li>
+        <li><span class="inside-ico">⚡</span><span><strong>La variación "Ritual Matutino"</strong> — Para quienes desean acelerar la respuesta del organismo en las primeras dos semanas. Requiere solo 3 minutos adicionales por la mañana.</span></li>
+        <li><span class="inside-ico">🌙</span><span><strong>Bono: Guía Sueño Profundo</strong> <span class="bonus-tag">Gratis</span> — Rutina nocturna específica para reducir la tos y la incomodidad respiratoria durante el sueño. Especialmente útil para quienes se despiertan de madrugada.</span></li>
+        <li><span class="inside-ico">🥦</span><span><strong>Bono: Guía Anti-Inflamatoria</strong> <span class="bonus-tag">Gratis</span> — Los alimentos cotidianos que apoyan la salud respiratoria y cuáles conviene reducir durante las tres semanas del protocolo. Sin dietas restrictivas.</span></li>
+      </ul>
+    </div>
+
+    <a class="cta-btn" href="https://pay.hotmart.com/Y107288459E?checkoutMode=10" target="_blank">Quiero Acceder Ahora por $17 →</a>
+    <div class="gap-12"></div>
+    <div class="trust-line">🔒 Pago 100% seguro · 🛡️ Garantía total de 30 días</div>
+
+    <hr class="sp-rule">
+
+    <!-- Urgency -->
+    <div class="body-s">
+      <div class="urgency-card">
+        <h3>⚠ Lugares disponibles a este precio: casi agotados</h3>
+        <p class="spots-caption">Por razones de capacidad del servidor y acompañamiento personalizado, el Protocolo Respirar Libre mantiene un límite de <strong>10,000 usuarios activos</strong> al mismo tiempo.</p>
+        <div class="meter-track"><div class="meter-fill"></div></div>
+        <p class="spots-caption">Miembros activos actualmente: <strong>9,847 de 10,000</strong></p>
+        <div class="spots-count">153</div>
+        <div class="spots-label">lugares restantes a $17</div>
+      </div>
+    </div>
+
+    <hr class="sp-rule">
+
+    <!-- Pricing -->
+    <div class="body-s">
+      <div class="price-card">
+        <div class="eyebrow">Inversión de hoy</div>
+        <div class="price-old">Precio original: $67</div>
+        <div class="price-mid">Precio anterior: $47</div>
+        <div class="price-tag">Solo hoy</div>
+        <div class="price-big"><sup>$</sup>17</div>
+        <ul class="price-includes">
+          <li><span class="pi-chk">✓</span> Programa completo de 21 días en video</li>
+          <li><span class="pi-chk">✓</span> La receta exacta con cantidades y método</li>
+          <li><span class="pi-chk">✓</span> Calendario diario de 21 días</li>
+          <li><span class="pi-chk">✓</span> Variación Ritual Matutino</li>
+          <li><span class="pi-chk">✓</span> Bono: Guía Sueño Profundo</li>
+          <li><span class="pi-chk">✓</span> Bono: Guía Anti-Inflamatoria</li>
+          <li><span class="pi-chk">✓</span> Garantía de devolución total — 30 días</li>
+        </ul>
+        <a class="cta-btn" href="https://pay.hotmart.com/Y107288459E?checkoutMode=10" target="_blank">Quiero Acceder Ahora por $17 →</a>
+        <div class="pay-logos">
+          <span class="pay-logo">VISA</span>
+          <span class="pay-logo">Mastercard</span>
+          <span class="pay-logo">Amex</span>
+          <span class="pay-logo">PayPal</span>
+        </div>
+        <div class="trust-line" style="margin-top:14px;">🔒 Pago 100% seguro y encriptado</div>
+      </div>
+    </div>
+
+    <hr class="sp-rule">
+
+    <!-- Guarantee -->
+    <div class="body-s">
+      <div class="guarantee-card">
+        <div class="guarantee-ico">🛡️</div>
+        <h3>Garantía Total de 30 Días</h3>
+        <p>Si en 30 días no nota ninguna diferencia en su comodidad respiratoria, le devolvemos cada centavo. Sin preguntas. Sin formularios complicados. Sin riesgos para usted.</p>
+        <p class="sub">Simplemente escríbanos y procesamos la devolución dentro de las 48 horas siguientes. Queremos que lo pruebe sin ninguna presión.</p>
+      </div>
+    </div>
+
+    <hr class="sp-rule">
+
+    <!-- FAQ -->
+    <div class="body-s">
+      <div class="eyebrow">Preguntas frecuentes</div>
+      <h2>Respuestas a las dudas más comunes</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>¿Necesito dejar de fumar para que esto funcione?</span>
+            <span class="faq-tog">+</span>
+          </div>
+          <div class="faq-ans"><div class="faq-ans-inner">No. El Protocolo Respirar Libre está diseñado para apoyar la comodidad respiratoria independientemente de si la persona fuma actualmente o no. Varios de nuestros miembros comenzaron el protocolo mientras aún fumaban y notaron mejorías en su bienestar respiratorio general. Dicho esto, si desea reducir o dejar el tabaco, el protocolo puede ser un aliado natural durante ese proceso, ya que apoya el proceso de recuperación de las vías respiratorias que el propio organismo pone en marcha cuando se reduce la exposición al humo.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>¿Qué tan fácil es conseguir los ingredientes?</span>
+            <span class="faq-tog">+</span>
+          </div>
+          <div class="faq-ans"><div class="faq-ans-inner">Los tres ingredientes — eucalipto, jengibre y miel cruda — se consiguen fácilmente en mercados, tiendas naturistas y supermercados en prácticamente cualquier ciudad de América Latina. El costo mensual estimado oscila entre $3 y $8 dólares dependiendo de su país y de dónde los compre. El programa también le indica cómo identificar la calidad correcta de cada ingrediente y qué alternativas locales son válidas cuando alguno no está disponible en su zona habitual de compras.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>¿Funciona para personas mayores de 70 años?</span>
+            <span class="faq-tog">+</span>
+          </div>
+          <div class="faq-ans"><div class="faq-ans-inner">Sí. El protocolo fue diseñado pensando especialmente en adultos mayores. Las instrucciones en video son claras, sin tecnicismos, y el Dr. Restrepo habla despacio y con paciencia en cada clase. Varios de nuestros miembros más satisfechos tienen más de 70 años, y algunos comenzaron el programa a los 75 y 78 años. La preparación en sí es simple y no requiere ningún equipamiento especial — solo una olla pequeña, una taza y los ingredientes.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>¿Tiene algún efecto secundario?</span>
+            <span class="faq-tog">+</span>
+          </div>
+          <div class="faq-ans"><div class="faq-ans-inner">Los tres ingredientes son alimentos naturales consumidos de forma habitual en muchas culturas. En personas sin alergias conocidas a alguno de los componentes, no se han reportado efectos adversos. Si usted tiene alergia conocida al eucalipto, al jengibre o a la miel, le recomendamos consultar con su médico antes de comenzar. Si toma medicamentos para condiciones respiratorias diagnosticadas, continúe tomándolos y use este protocolo como apoyo complementario, informando a su médico si lo considera conveniente.</div></div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span>¿Cómo recibo el acceso después de pagar?</span>
+            <span class="faq-tog">+</span>
+          </div>
+          <div class="faq-ans"><div class="faq-ans-inner">Inmediatamente después de completar el pago, recibirá un correo electrónico con sus datos de acceso a la plataforma digital del programa. El acceso es instantáneo, disponible las 24 horas del día, y puede ingresar desde su teléfono celular, tableta o computadora. No hay nada que descargar ni instalar. Si en los primeros 30 minutos no recibe el correo, revise su carpeta de correo no deseado. Si no está ahí, escríbanos directamente y lo resolvemos en menos de una hora.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <hr class="sp-rule">
+
+    <!-- Closing -->
+    <div class="body-s">
+      <div class="closing-card">
+        <p>En este momento tiene dos caminos frente a usted.</p>
+        <p>El primero es no hacer nada diferente. Seguir el día a día con la misma incomodidad respiratoria, los mismos despertares nocturnos, la misma sensación de que su cuerpo necesita más aire del que puede tomar cómodamente. Es posible que con el tiempo mejore por sí solo. También es posible que no.</p>
+        <p>El segundo camino es invertir menos de lo que cuesta un almuerzo para acceder a un protocolo que más de 7,400 personas en América Latina ya están usando para apoyar su bienestar respiratorio de manera natural, desde la comodidad de su hogar, con ingredientes que ya conoce y que han acompañado a generaciones de personas en los Andes colombianos.</p>
+        <p>No le prometemos milagros. Le ofrecemos un método específico, respaldado por una tradición centenaria y adaptado por un especialista, con una garantía de devolución completa si en 30 días no nota ninguna diferencia. Sin riesgo. Sin compromiso de ningún tipo.</p>
+        <p>Si algo en las preguntas del quiz de hoy le hizo pensar "esto podría ser exactamente lo que necesito" — ese instinto merece que lo siga.</p>
+        <p class="closing-final">Haga clic en el botón verde y comience hoy.</p>
+        <div class="closing-sig">— Dr. Camilo Restrepo · Medellín, Colombia</div>
+      </div>
+    </div>
+
+    <div class="gap-20"></div>
+    <a class="cta-btn" href="https://pay.hotmart.com/Y107288459E?checkoutMode=10" target="_blank">Quiero Acceder Ahora por $17 →</a>
+    <div class="gap-12"></div>
+    <div class="trust-line">🔒 Garantía total de 30 días · Sin preguntas · Sin formularios</div>
+    <div class="gap-32"></div>
+
+  </div>
+</div>
+
+<script>
+const qs=[
+  {t:"¿Cómo describiría su respiración en el día a día?",a:["Normal, sin molestias","A veces me cuesta respirar profundo","Con frecuencia siento el pecho apretado","Me falta el aire con actividades simples"]},
+  {t:"¿Alguna vez ha fumado o fuma actualmente?",a:["Nunca he fumado","Dejé de fumar hace más de 5 años","Dejé de fumar recientemente (menos de 5 años)","Fumo actualmente"]},
+  {t:"Cuando sube escaleras o camina rápido, ¿qué ocurre?",a:["Llego sin problema, sin perder el aliento","Llego, pero noto que me agito un poco","Tengo que detenerme a mitad de camino","Evito las escaleras porque me deja sin aire"]},
+  {t:"¿Con qué frecuencia se despierta por la noche debido a tos o sensación de falta de aire?",a:["Nunca o casi nunca","Una o dos veces al mes","Varias veces a la semana","Casi todas las noches"]},
+  {t:"¿Ha notado que su energía diaria ha disminuido en los últimos años?",a:["No, me siento con buena energía","Un poco menos de energía, pero tolerable","Sí, me canso mucho más que antes","El cansancio me impide hacer actividades normales"]},
+  {t:"¿Ha usado inhaladores, jarabes u otros tratamientos para sus pulmones o garganta?",a:["No, nunca los he necesitado","Los usé en el pasado, pero ya no","Los uso ocasionalmente","Dependo de ellos con frecuencia"]},
+  {t:"¿Cuántos años tiene usted?",a:["Menos de 40 años","Entre 40 y 54 años","Entre 55 y 69 años","70 años o más"]}
+];
+const letters=['A','B','C','D'];
+let cur=0;
+
+function renderQ(){
+  const q=qs[cur];
+  const tot=qs.length;
+  const pct=(cur/tot)*100;
+  document.getElementById('prog-fill').style.width=pct+'%';
+  const lbl=`Pregunta ${cur+1} de ${tot}`;
+  document.getElementById('prog-label').textContent=lbl;
+  document.getElementById('q-eyebrow').textContent=lbl;
+  document.getElementById('q-text').textContent=q.t;
+  const al=document.getElementById('a-list');
+  al.innerHTML='';
+  q.a.forEach((ans,i)=>{
+    const btn=document.createElement('button');
+    btn.className='a-btn';
+    btn.innerHTML=`<span class="a-letter">${letters[i]}</span>${ans}`;
+    btn.addEventListener('click',()=>pick(i));
+    al.appendChild(btn);
+  });
+  const card=document.getElementById('q-card');
+  card.style.animation='none';
+  card.offsetHeight;
+  card.style.animation='';
+}
+
+function pick(i){
+  const btns=document.querySelectorAll('.a-btn');
+  btns.forEach(b=>b.disabled=true);
+  btns[i].classList.add('selected');
+  setTimeout(()=>{
+    cur++;
+    if(cur>=qs.length){
+      document.getElementById('prog-fill').style.width='100%';
+      document.getElementById('prog-label').textContent='Completado';
+      setTimeout(()=>switchScreen('screen-results'),300);
+    } else {
+      renderQ();
+    }
+  },360);
+}
+
+function switchScreen(id){
+  const curr=document.querySelector('.screen.visible');
+  const next=document.getElementById(id);
+  if(!curr){
+    next.classList.add('visible');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>next.classList.add('fade-in')));
+    if(id==='screen-results') startResults();
+    return;
+  }
+  curr.classList.remove('fade-in');
+  setTimeout(()=>{
+    curr.classList.remove('visible');
+    if(id==='screen-sales') window.scrollTo(0,0);
+    next.classList.add('visible');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>next.classList.add('fade-in')));
+    if(id==='screen-results') startResults();
+  },440);
+}
+
+function startResults(){
+  const lw=document.getElementById('loader-wrap');
+  const rc=document.getElementById('result-card');
+  lw.style.display='block';
+  rc.classList.remove('show');
+  setTimeout(()=>{
+    lw.style.display='none';
+    rc.classList.add('show');
+  },4000);
+}
+
+function goSales(){switchScreen('screen-sales')}
+
+function toggleFaq(el){
+  el.parentElement.classList.toggle('open');
+}
+
+renderQ();
+</script>
+</body>
+</html>
